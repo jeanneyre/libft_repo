@@ -1,32 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_memccpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: crondeau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/20 16:20:52 by crondeau          #+#    #+#             */
-/*   Updated: 2021/05/21 16:43:37 by crondeau         ###   ########.fr       */
+/*   Created: 2021/05/21 16:44:32 by crondeau          #+#    #+#             */
+/*   Updated: 2021/05/21 17:28:45 by crondeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-void	*ft_memcpy(void *dst, const void *src, size_t size)
+void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
 {
 	size_t				i;
 	unsigned char		*dest;
 	unsigned const char	*source;
 
-	if (dst == NULL && src == NULL)
-		return (NULL);
 	i = 0;
 	dest = (unsigned char *)dst;
 	source = (unsigned char *)src;
 	while (i < n)
 	{
-		*((char *)dest + i) = *((char *)source + i); //pourquoi etoile devant parenthese
+		((unsigned char *)dest)[i] = ((unsigned char *)source)[i];
+		if (((unsigned char *)source)[i] == (unsigned char)c)
+		{
+			   return (&dest[i + 1]);
+		}
 		i++;
 	}
-	return (dest);
+	return (NULL);
 }
