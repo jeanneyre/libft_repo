@@ -1,39 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: crondeau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/20 10:41:30 by crondeau          #+#    #+#             */
-/*   Updated: 2021/05/20 10:48:03 by crondeau         ###   ########.fr       */
+/*   Created: 2021/05/24 16:24:30 by crondeau          #+#    #+#             */
+/*   Updated: 2021/05/25 11:42:00 by crondeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_atoi(char *str)
-{
-	int	i;
-	int	j;
-	int	valeur;
+//#include "libft.h"
+#include <stdlib.h>
 
-	i = 0;
-	j = 0;
-	valeur = 0;
-	while (str[i] == 32 || (str[i] > 8 && str[i] < 14))
-		i++;
-	while (str[i] == 43 || str[i] == 45)
-	{
-		if (str[i] == 45)
-			j++;
-		i++;
-	}
-	while (str[i] > 47 && str[i] < 58)
-	{
-		valeur = (valeur * 10) + str[i] - 48;
-		i++;
-	}
-	if ((j % 2) == 1)
-		return (valeur * -1);
-	else
-		return (valeur);
+char    *ft_strchr(char *str, int c)
+{
+    int                i;
+    unsigned char    csearch;
+
+    csearch = (unsigned char) c;
+    i = 0;
+    while (str[i])
+    {
+        if (str[i] == csearch)
+            return (str + i);
+        i++;
+    }
+    if (str[i] == csearch)
+        return (str + i);
+    return (NULL);
 }

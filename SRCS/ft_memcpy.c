@@ -6,7 +6,7 @@
 /*   By: crondeau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 16:20:52 by crondeau          #+#    #+#             */
-/*   Updated: 2021/05/21 16:43:37 by crondeau         ###   ########.fr       */
+/*   Updated: 2021/05/26 10:51:37 by crondeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ void	*ft_memcpy(void *dst, const void *src, size_t size)
 	i = 0;
 	dest = (unsigned char *)dst;
 	source = (unsigned char *)src;
-	while (i < n)
+	while (i < size)
 	{
-		*((char *)dest + i) = *((char *)source + i); //pourquoi etoile devant parenthese
+		*((char *)dest + i) = *((char *)source + i);
 		i++;
 	}
 	return (dest);

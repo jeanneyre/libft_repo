@@ -6,9 +6,12 @@
 /*   By: crondeau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 16:44:32 by crondeau          #+#    #+#             */
-/*   Updated: 2021/05/21 17:28:45 by crondeau         ###   ########.fr       */
+/*   Updated: 2021/05/26 10:43:38 by crondeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+//#include "libft.h"//
+#include <stdio.h>
 
 void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
 {
@@ -24,7 +27,7 @@ void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
 		((unsigned char *)dest)[i] = ((unsigned char *)source)[i];
 		if (((unsigned char *)source)[i] == (unsigned char)c)
 		{
-			   return (&dest[i + 1]);
+			return (&dest[i + 1]);
 		}
 		i++;
 	}

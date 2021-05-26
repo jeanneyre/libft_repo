@@ -6,11 +6,11 @@
 /*   By: crondeau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 16:13:15 by crondeau          #+#    #+#             */
-/*   Updated: 2021/05/21 16:23:33 by crondeau         ###   ########.fr       */
+/*   Updated: 2021/05/25 12:48:48 by crondeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
+#include "libft.h"
 
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
@@ -23,7 +23,7 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	}
 	else if (src > dst)
 	{
-		ft_memcpy(dst, rcs, len);
+		ft_memcpy(dst, src, len);
 	}
 	return (dst);
 }

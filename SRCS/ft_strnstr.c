@@ -1,39 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: crondeau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/20 10:41:30 by crondeau          #+#    #+#             */
-/*   Updated: 2021/05/20 10:48:03 by crondeau         ###   ########.fr       */
+/*   Created: 2021/05/26 11:48:00 by crondeau          #+#    #+#             */
+/*   Updated: 2021/05/26 14:46:27 by crondeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_atoi(char *str)
+#include "libft.h"
+
+char	*ft_strnstr(const char *s1 , const char *s2 , size_t size)
 {
-	int	i;
-	int	j;
-	int	valeur;
+	size_t	i;
+	size_t	j;
 
 	i = 0;
-	j = 0;
-	valeur = 0;
-	while (str[i] == 32 || (str[i] > 8 && str[i] < 14))
-		i++;
-	while (str[i] == 43 || str[i] == 45)
+	if (*s2 == '\0' || s2 == NULL)
+		return ((char *)s1);
+	while (s1[i] && i < size)
 	{
-		if (str[i] == 45)
+		j = 0;
+		while (s2[j] == s1[i + j] && (i + j) < size)
+		{
+			if (s2[j + 1] == '\0')
+			{
+				return ((char *)s1 + i);
+			}
 			j++;
+		}
 		i++;
 	}
-	while (str[i] > 47 && str[i] < 58)
-	{
-		valeur = (valeur * 10) + str[i] - 48;
-		i++;
-	}
-	if ((j % 2) == 1)
-		return (valeur * -1);
-	else
-		return (valeur);
+	return (NULL);
 }

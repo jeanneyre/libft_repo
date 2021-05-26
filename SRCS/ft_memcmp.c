@@ -1,39 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: crondeau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/20 10:41:30 by crondeau          #+#    #+#             */
-/*   Updated: 2021/05/20 10:48:03 by crondeau         ###   ########.fr       */
+/*   Created: 2021/05/25 17:24:03 by crondeau          #+#    #+#             */
+/*   Updated: 2021/05/26 10:54:26 by crondeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_atoi(char *str)
-{
-	int	i;
-	int	j;
-	int	valeur;
+#include "libft.h"
 
+int	ft_memcmp(const void *s1,const void *s2, size_t len)
+{
+	unsigned char	*str1;
+	unsigned char	*str2;
+	size_t		i;
+
+	str1 = (unsigned char *)s1;
+	str2 = (unsigned char *)s2;
 	i = 0;
-	j = 0;
-	valeur = 0;
-	while (str[i] == 32 || (str[i] > 8 && str[i] < 14))
-		i++;
-	while (str[i] == 43 || str[i] == 45)
+	if (s1 == NULL && s2 == NULL && len == 0)
+		return (0);
+	while (*str1 == *str2 && ++i < len)
 	{
-		if (str[i] == 45)
-			j++;
-		i++;
+		str1++;
+		str2++;
 	}
-	while (str[i] > 47 && str[i] < 58)
-	{
-		valeur = (valeur * 10) + str[i] - 48;
-		i++;
-	}
-	if ((j % 2) == 1)
-		return (valeur * -1);
-	else
-		return (valeur);
-}
+	return ((int) (*str1 - *str2));
+}	

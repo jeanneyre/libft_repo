@@ -5,24 +5,20 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: crondeau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/20 15:52:47 by crondeau          #+#    #+#             */
-/*   Updated: 2021/05/20 15:53:52 by crondeau         ###   ########.fr       */
+/*   Created: 2021/05/26 10:59:02 by crondeau          #+#    #+#             */
+/*   Updated: 2021/05/26 11:14:21 by crondeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 int	ft_strncmp(char *s1, char *s2, unsigned int n)
 {
 	unsigned int	i;
 
 	i = 0;
-	if (n == 0)
-		return (0);
-	while (s1[i] == s2[i] && i < n - 1 && (s1[i] != '\0' || s2[i] != '\0'))
-	{
+	while (s1[i] && s2[i] && (unsigned char)s1[i] == (unsigned char)s2[i]
+			&& i < n - 1)
 		i++;
-	}
-	if (s1[i] == s2[i])
-		return (0);
-	else
-		return (s1[i] - s2[i]);
+	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 }
