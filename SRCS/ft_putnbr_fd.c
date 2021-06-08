@@ -1,32 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: crondeau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/20 16:20:52 by crondeau          #+#    #+#             */
-/*   Updated: 2021/06/03 16:25:48 by crondeau         ###   ########.fr       */
+/*   Created: 2021/05/31 13:21:29 by crondeau          #+#    #+#             */
+/*   Updated: 2021/06/01 10:34:23 by crondeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "libft.h"
 
-void	*ft_memcpy(void *dst, const void *src, size_t size)
+void	ft_putcharm_fd(char c, int fd)
 {
-	size_t				i;
-	unsigned char		*dest;
-	unsigned const char	*source;
+	write(fd, &c, 1);
+}
 
-	if (dst == NULL && src == NULL)
-		return (NULL);
-	i = 0;
-	dest = (unsigned char *)dst;
-	source = (unsigned char *)src;
-	while (i < size)
+void	ft_putnbr_fd(int nb, int fd)
+{
+	if (nb == -2147483648)
 	{
-		*((char *)dest + i) = *((char *)source + i);
-		i++;
+		write(fd, "-2147483648", 11);
 	}
-	return (dest);
+	else if (nb >= 0 && nb < 10)
+	{
+		ft_putcharm_fd(nb + '0', fd);
+	}
+	else if (nb < 0)
+	{
+		ft_putcharm_fd('-', fd);
+		ft_putnbr_fd(nb * -1, fd);
+	}
+	else if (nb > 0)
+	{
+		ft_putnbr_fd(nb / 10, fd);
+		ft_putnbr_fd(nb % 10, fd);
+	}
 }

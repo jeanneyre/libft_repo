@@ -6,7 +6,7 @@
 /*   By: crondeau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 16:03:29 by crondeau          #+#    #+#             */
-/*   Updated: 2021/05/25 10:16:13 by crondeau         ###   ########.fr       */
+/*   Updated: 2021/06/03 16:22:07 by crondeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,3 +16,4 @@ void	ft_bzero (void *pointer, size_t count)
 {
 	ft_memset((pointer), '\0', (count));
 }
+

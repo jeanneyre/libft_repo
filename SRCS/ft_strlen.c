@@ -6,11 +6,11 @@
 /*   By: crondeau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 14:56:38 by crondeau          #+#    #+#             */
-/*   Updated: 2021/05/20 14:57:21 by crondeau         ###   ########.fr       */
+/*   Updated: 2021/06/02 11:57:36 by crondeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(char *str)
+int	ft_strlen(const char *str)
 {
 	int	i;
 

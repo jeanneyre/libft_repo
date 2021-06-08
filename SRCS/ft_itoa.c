@@ -1,39 +1,57 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   strrchr.c                                          :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: crondeau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/24 16:44:22 by crondeau          #+#    #+#             */
-/*   Updated: 2021/05/31 16:42:05 by crondeau         ###   ########.fr       */
+/*   Created: 2021/06/02 13:55:43 by crondeau          #+#    #+#             */
+/*   Updated: 2021/06/04 10:43:53 by crondeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strlenm(char *str)
+int	ft_intlen(long nb)
 {
 	int	i;
 
 	i = 0;
-	while (str[i] != '\0')
+	if (nb == 0)
+		return (++i);
+	if (nb < 0)
+		++i;
+	while (nb)
+	{
+		nb /= 10;
 		i++;
+	}
 	return (i);
 }
 
-char	*ft_strrchr(char *str, int c)
+char	*ft_itoa(int n)
 {
-	int		i;
-	char	csearch;
+	char	*str;
+	long	i;
+	int		len;
 
-	csearch = (unsigned char) c;
-	i = ft_strlenm(str);
-	while (i >= 0)
+	i = n;
+	len = ft_intlen(i);
+	str = (char *)malloc(sizeof(char) * len + 1);
+	if (str == NULL)
+		return (NULL);
+	str[len--] = '\0';
+	if (i == 0)
+		str[0] = '0';
+	if (i < 0)
 	{
-		if (str[i] == csearch)
-			return (str + i);
-		i--;
+		str[0] = '-';
+		i *= -1;
 	}
-	return (NULL);
+	while (i > 0)
+	{
+		str[len--] = i % 10 + 48;
+		i /= 10;
+	}
+	return (str);
 }

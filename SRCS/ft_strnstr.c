@@ -6,13 +6,13 @@
 /*   By: crondeau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 11:48:00 by crondeau          #+#    #+#             */
-/*   Updated: 2021/05/26 14:46:27 by crondeau         ###   ########.fr       */
+/*   Updated: 2021/05/27 09:53:15 by crondeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *s1 , const char *s2 , size_t size)
+char	*ft_strnstr(const char *s1, const char *s2, size_t size)
 {
 	size_t	i;
 	size_t	j;

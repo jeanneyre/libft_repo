@@ -5,29 +5,29 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: crondeau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/20 13:46:06 by crondeau          #+#    #+#             */
-/*   Updated: 2021/05/26 10:36:54 by crondeau         ###   ########.fr       */
+/*   Created: 2021/06/02 16:22:28 by crondeau          #+#    #+#             */
+/*   Updated: 2021/06/07 10:22:02 by crondeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(char *str)
+char	*ft_strdup(char *s)
 {
+	char	*str;
 	int		i;
-	int		len;
-	char	*dup;
 
-	i = 0;
-	len = ft_strlen(str);
-	dup = (char *)malloc(sizeof(char) * len + 1);
-	if (dup == NULL)
-		return (NULL);
-	while (str[i] != '\0')
+	str = malloc(sizeof(char) * (ft_strlen(s) + 1));
+	if (str)
 	{
-		dup[i] = str[i];
-		i++;
+		i = 0;
+		while (s[i] != '\0')
+		{
+			str[i] = s[i];
+			i++;
+		}
+		str[i] = '\0';
+		return (str);
 	}
-	dup[i] = '\0';
-	return (dup);
+	return (NULL);
 }

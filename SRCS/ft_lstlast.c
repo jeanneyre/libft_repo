@@ -1,32 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: crondeau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/20 16:20:52 by crondeau          #+#    #+#             */
-/*   Updated: 2021/06/03 16:25:48 by crondeau         ###   ########.fr       */
+/*   Created: 2021/06/08 13:54:36 by crondeau          #+#    #+#             */
+/*   Updated: 2021/06/08 16:02:50 by crondeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *dst, const void *src, size_t size)
+t_list	*ft_lstlast(t_list *lst)
 {
-	size_t				i;
-	unsigned char		*dest;
-	unsigned const char	*source;
+	t_list	*last;
 
-	if (dst == NULL && src == NULL)
-		return (NULL);
-	i = 0;
-	dest = (unsigned char *)dst;
-	source = (unsigned char *)src;
-	while (i < size)
+	last = lst;
+	while (lst)
 	{
-		*((char *)dest + i) = *((char *)source + i);
-		i++;
+		last = lst;
+		lst->next = lst;
 	}
-	return (dest);
+	return (last);
 }
